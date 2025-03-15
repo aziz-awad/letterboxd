@@ -8,10 +8,10 @@ from typing import List, Dict, Any
 
 # Config
 LETTERBOXD_RSS_URL = os.environ.get("LETTERBOXD_RSS_URL")
-PLURK_API_KEY = os.environ.get("PLURK_API_KEY")
-PLURK_API_SECRET = os.environ.get("PLURK_API_SECRET")
-PLURK_ACCESS_TOKEN = os.environ.get("PLURK_ACCESS_TOKEN")
-PLURK_ACCESS_TOKEN_SECRET = os.environ.get("PLURK_ACCESS_TOKEN_SECRET")
+PLURK_API_KEY = "H3edGUsSRu2n" #os.environ.get("PLURK_API_KEY")
+PLURK_API_SECRET = "mLFeClL6evI4LK224em0GUIEHOft1qjO" #os.environ.get("PLURK_API_SECRET")
+PLURK_ACCESS_TOKEN = "A8yJRKN5uJ5Z" # os.environ.get("PLURK_ACCESS_TOKEN")
+PLURK_ACCESS_TOKEN_SECRET =  "5f0aCDXasWOyXKqQpBeTRXldDdq9hvbo" # os.environ.get("PLURK_ACCESS_TOKEN_SECRET")
 DATA_FILE = "posted_reviews.json"
 PLURK_API_URL = "https://www.plurk.com/APP/Timeline/plurkAdd"
 
