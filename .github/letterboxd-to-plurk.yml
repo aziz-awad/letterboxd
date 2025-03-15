@@ -26,10 +26,10 @@ jobs:
       - name: Run letterboxd-to-plurk script
         env:
           LETTERBOXD_RSS_URL: ${{ secrets.LETTERBOXD_RSS_URL }}
-          PLURK_API_KEY: ${{ secrets.PLURK_API_KEY }}
-          PLURK_API_SECRET: ${{ secrets.PLURK_API_SECRET }}
-          PLURK_ACCESS_TOKEN: ${{ secrets.PLURK_ACCESS_TOKEN }}
-          PLURK_ACCESS_TOKEN_SECRET: ${{ secrets.PLURK_ACCESS_TOKEN_SECRET }}
+          # PLURK_API_KEY: ${{ secrets.PLURK_API_KEY }}
+          # PLURK_API_SECRET: ${{ secrets.PLURK_API_SECRET }}
+          # PLURK_ACCESS_TOKEN: ${{ secrets.PLURK_ACCESS_TOKEN }}
+          # PLURK_ACCESS_TOKEN_SECRET: ${{ secrets.PLURK_ACCESS_TOKEN_SECRET }}
         run: python main.py
       
       - name: Commit and push if there are changes
