@@ -121,10 +121,10 @@ def main():
     # Post new reviews to Plurk
     newly_posted = []
     for review in new_reviews:
-        success = post_to_plurk(review)
-        if success:
-            posted_review_ids.append(review.id)
-            newly_posted.append(review.to_dict())
+        # success = post_to_plurk(review)
+        # if success:
+        posted_review_ids.append(review.id)
+        newly_posted.append(review.to_dict())
     
     # Save updated list of posted reviews
     save_posted_reviews(posted_review_ids)
