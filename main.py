@@ -57,11 +57,11 @@ def fetch_letterboxd_reviews() -> List[LetterboxdReview]:
     
     print(f"Fetching reviews from {LETTERBOXD_RSS_URL}")
     feed = feedparser.parse(LETTERBOXD_RSS_URL)
-    current_year = datetime.datetime.now().year
+    current_year = datetime.now().year
 
     reviews = []
     for entry in feed.entries:
-        published_date = datetime.datetime(*entry.published_parsed[:6])  # (Year, Month, Day, etc.)
+        published_date = datetime(*entry.published_parsed[:6])  # (Year, Month, Day, etc.)
         if published_date.year == current_year:
             review = LetterboxdReview(
                 title=entry.title,
