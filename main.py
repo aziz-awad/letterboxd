@@ -15,7 +15,7 @@ PLURK_ACCESS_TOKEN_SECRET =  "sUQb6U6zi1OyqDnnOiBc3HkEH9jZEsFe" # os.environ.get
 DATA_FILE = "posted_reviews.json"
 PLURK_API_URL = "https://www.plurk.com/APP/Timeline/plurkAdd"
 PLURK_MAX_LENGTH = 360
-HASHTAH = "#letterboxd"
+HASHTAG = "#letterboxd"
 
 class LetterboxdReview:
     def __init__(self, title: str, link: str, description: str, published: str, id: str):
