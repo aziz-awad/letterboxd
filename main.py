@@ -84,11 +84,11 @@ def post_to_plurk(review: LetterboxdReview) -> bool:
         sys.exit(1)
 
 
-    content = f"🎬 {title}\n🔗 {link}\n📝 {description}\n{HASHTAG}"
+    content = f"🎬 {review.title}\n🔗 {review.link}\n📝 {review.description}\n{HASHTAG}"
     # 如果超過 Plurk 限制，就截斷內容並加上 "..."
     if len(plurk_content) > PLURK_MAX_LENGTH:
         allowed_length = PLURK_MAX_LENGTH - len(f"\n{HASHTAG}") - 3  # 預留 Hashtag & "..."
-        content = f"🎬 {title}\n🔗 {link}\n📝 {description[:allowed_length]}...\n{HASHTAG}"
+        content = f"🎬 {review.title}\n🔗 {review.link}\n📝 {review.description[:allowed_length]}...\n{HASHTAG}"
     
     
     # Set up OAuth for Plurk
