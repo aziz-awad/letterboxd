@@ -7,7 +7,7 @@ import sys
 from typing import List, Dict, Any
 
 # Config
-LETTERBOXD_RSS_URL = https://letterboxd.com/iyun/rss/ #os.environ.get("LETTERBOXD_RSS_URL")
+LETTERBOXD_RSS_URL = "https://letterboxd.com/iyun/rss/" #os.environ.get("LETTERBOXD_RSS_URL")
 PLURK_API_KEY = "cVWw0aOEs1rZ"  #os.environ.get("PLURK_API_KEY")
 PLURK_API_SECRET = "OOrBC1pfTGoqYn6JPerYcOiqFElRgQHk" #os.environ.get("PLURK_API_SECRET")
 PLURK_ACCESS_TOKEN = "T3NHnnd3DGhv" # os.environ.get("PLURK_ACCESS_TOKEN")
