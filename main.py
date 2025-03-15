@@ -69,7 +69,7 @@ def fetch_letterboxd_reviews() -> List[LetterboxdReview]:
             review = LetterboxdReview(
                 title=entry.title,
                 link=entry.link,
-                description=BeautifulSoup(entry.description, "html.parser").get_text()#entry.get('description', ''),
+                description=BeautifulSoup(entry.description, "html.parser").get_text(), #entry.get('description', ''),
                 published=entry.get('published', ''),
                 id=entry.id
             )
