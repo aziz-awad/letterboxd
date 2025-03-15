@@ -7,13 +7,15 @@ import sys
 from typing import List, Dict, Any
 
 # Config
-LETTERBOXD_RSS_URL = os.environ.get("LETTERBOXD_RSS_URL")
-PLURK_API_KEY = "H3edGUsSRu2n" #os.environ.get("PLURK_API_KEY")
-PLURK_API_SECRET = "mLFeClL6evI4LK224em0GUIEHOft1qjO" #os.environ.get("PLURK_API_SECRET")
-PLURK_ACCESS_TOKEN = "A8yJRKN5uJ5Z" # os.environ.get("PLURK_ACCESS_TOKEN")
-PLURK_ACCESS_TOKEN_SECRET =  "5f0aCDXasWOyXKqQpBeTRXldDdq9hvbo" # os.environ.get("PLURK_ACCESS_TOKEN_SECRET")
+LETTERBOXD_RSS_URL = https://letterboxd.com/iyun/rss/ #os.environ.get("LETTERBOXD_RSS_URL")
+PLURK_API_KEY = "cVWw0aOEs1rZ"  #os.environ.get("PLURK_API_KEY")
+PLURK_API_SECRET = "OOrBC1pfTGoqYn6JPerYcOiqFElRgQHk" #os.environ.get("PLURK_API_SECRET")
+PLURK_ACCESS_TOKEN = "T3NHnnd3DGhv" # os.environ.get("PLURK_ACCESS_TOKEN")
+PLURK_ACCESS_TOKEN_SECRET =  "sUQb6U6zi1OyqDnnOiBc3HkEH9jZEsFe" # os.environ.get("PLURK_ACCESS_TOKEN_SECRET")
 DATA_FILE = "posted_reviews.json"
 PLURK_API_URL = "https://www.plurk.com/APP/Timeline/plurkAdd"
+PLURK_MAX_LENGTH = 360
+
 
 class LetterboxdReview:
     def __init__(self, title: str, link: str, description: str, published: str, id: str):
@@ -80,9 +82,14 @@ def post_to_plurk(review: LetterboxdReview) -> bool:
     if not all([PLURK_API_KEY, PLURK_API_SECRET, PLURK_ACCESS_TOKEN, PLURK_ACCESS_TOKEN_SECRET]):
         print("Error: Plurk API credentials are not properly set in environment variables")
         sys.exit(1)
+
+
+    content = f"🎬 {title}\n🔗 {link}\n📝 {description}\n{HASHTAG}"
+    # 如果超過 Plurk 限制，就截斷內容並加上 "..."
+    if len(plurk_content) > PLURK_MAX_LENGTH:
+        allowed_length = PLURK_MAX_LENGTH - len(f"\n{HASHTAG}") - 3  # 預留 Hashtag & "..."
+        content = f"🎬 {title}\n🔗 {link}\n📝 {description[:allowed_length]}...\n{HASHTAG}"
     
-    # Format content for Plurk
-    content = f"I watched {review.title} - {review.description[:100]}... {review.link}"
     
     # Set up OAuth for Plurk
     from requests_oauthlib import OAuth1
