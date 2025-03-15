@@ -3,6 +3,7 @@ import json
 import feedparser
 import requests
 from datetime import datetime
+from bs4 import BeautifulSoup
 import sys
 from typing import List, Dict, Any
 
@@ -68,7 +69,7 @@ def fetch_letterboxd_reviews() -> List[LetterboxdReview]:
             review = LetterboxdReview(
                 title=entry.title,
                 link=entry.link,
-                description=entry.get('description', ''),
+                description=BeautifulSoup(entry.description, "html.parser").get_text()#entry.get('description', ''),
                 published=entry.get('published', ''),
                 id=entry.id
             )
